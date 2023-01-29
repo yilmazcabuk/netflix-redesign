@@ -1,3 +1,4 @@
+/* eslint no-console: ["error", { allow: ["warn", "error"] }] */
 import { ResponseComposition, RestContext, RestRequest } from 'msw';
 import { ErrorApiResponse, SuccessApiResponse } from 'next-api-handler';
 
