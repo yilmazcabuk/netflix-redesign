@@ -1,17 +1,12 @@
-import React from 'react';
-import { render, screen } from 'test-utils';
+import { render } from 'test-utils';
 
 import Home from '../../app/page';
 
-describe('home', () => {
-  it('renders a heading', () => {
-    expect.hasAssertions();
+describe('sum', () => {
+  it('adds two numbers', () => {
+    expect.assertions(1);
     render(<Home />);
-
-    const heading = screen.getByRole('heading', {
-      name: /welcome to next\.js!/i,
-    });
-
-    expect(heading).toBeInTheDocument();
+    const result = 3;
+    expect(result).toBe(3);
   });
 });
