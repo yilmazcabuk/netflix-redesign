@@ -1,3 +1,7 @@
 export default function Banner() {
-  return <div />;
+  return (
+    <div>
+      <p>Banner</p>
+    </div>
+  );
 }

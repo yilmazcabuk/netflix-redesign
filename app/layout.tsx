@@ -11,14 +11,10 @@ if (process.env.NEXT_PUBLIC_API_MOCKING === 'true') {
 
 export default function RootLayout({ children }: ChildrenProps) {
   return (
-    <html
-      className="relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511] lg:h-[140vh]"
-      lang="en"
-      data-theme="dark"
-    >
-      <body className="flex h-full flex-col">
+    <html lang="en" data-theme="dark">
+      <body className="relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511] lg:h-[140vh]">
         <Header />
-        <main className="flex-1">{children}</main>
+        <main>{children}</main>
         <Footer />
       </body>
     </html>
