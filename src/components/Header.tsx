@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { BellIcon, MagnifyingGlassIcon } from '@heroicons/react/20/solid';
+import { IoNotificationsOutline, IoSearchOutline } from 'react-icons/io5';
 import Link from 'next/link';
 
 import NetflixAvatar from '@/public/netflix-avatar';
@@ -26,7 +26,7 @@ export default function Header() {
   return (
     <header className={`${isScrolled && 'bg-[#141414]'}`}>
       <div className="flex items-center space-x-2 md:space-x-10">
-        <NetflixLogo width={100} />
+        <NetflixLogo width={144} />
         <ul className="hidden space-x-4 md:flex">
           <li className="headerLink">Home</li>
           <li className="headerLink">TV Shows</li>
@@ -36,11 +36,11 @@ export default function Header() {
         </ul>
       </div>
       <div className="flex items-center space-x-4 text-sm font-light">
-        <MagnifyingGlassIcon className="hidden h-6 w-6 sm:inline" />
-        <p className="hidden lg:inline">Kids</p>
-        <BellIcon className="h-6 w-6" />
-        <Link href="/account">
-          <NetflixAvatar width={48} height={48} />
+        <IoSearchOutline className="hidden h-6 w-6 sm:inline" />
+        <p className="hidden text-lg lg:inline">Kids</p>
+        <IoNotificationsOutline className="h-6 w-6" />
+        <Link href="/">
+          <NetflixAvatar className="rounded-lg" width={56} height={56} />
         </Link>
       </div>
     </header>

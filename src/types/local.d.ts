@@ -1,5 +1,5 @@
 declare namespace Local {
-  interface Genre {
+  export interface Genre {
     id: number;
     name: string;
   }
@@ -23,7 +23,7 @@ declare namespace Local {
     vote_count: number;
   }
 
-  interface Element {
+  export interface Element {
     type:
       | 'Bloopers'
       | 'Featurette'

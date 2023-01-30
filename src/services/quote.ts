@@ -22,7 +22,7 @@ const customFetch = async <T>(
 
   if (res.status !== 200) throw new Error(`request failed with ${res.status}`);
 
-  return res.json() as Promise<T>;
+  return (await res.json()) as Promise<T>;
 };
 
 export const getRandomQuote = async (option?: RequestInit) =>

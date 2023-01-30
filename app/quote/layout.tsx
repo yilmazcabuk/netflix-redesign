@@ -4,8 +4,8 @@ import Link from 'next/link';
 export default function QuoteLayout({ children }: ChildrenProps) {
   return (
     <div className="container mx-auto max-w-screen-lg">
-      <div className="mockup-window border bg-base-300">
-        <div className="flex justify-center bg-base-200 px-4 py-16">
+      <div className="mockup-window bg-base-300 border">
+        <div className="bg-base-200 flex justify-center px-4 py-16">
           {children}
         </div>
       </div>
