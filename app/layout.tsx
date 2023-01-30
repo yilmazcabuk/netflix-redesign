@@ -11,11 +11,7 @@ if (process.env.NEXT_PUBLIC_API_MOCKING === 'true') {
 
 export default function RootLayout({ children }: ChildrenProps) {
   return (
-    <html className="h-full" lang="en" data-theme="light">
-      <head>
-        <title>Next.js Tailwind Template</title>
-        <link rel="icon" href="/favicon.ico" />
-      </head>
+    <html className="h-full" lang="en" data-theme="dark">
       <body className="flex h-full flex-col">
         <Header />
         <main className="flex-1">{children}</main>
