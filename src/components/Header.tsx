@@ -26,7 +26,7 @@ export default function Header() {
   return (
     <header className={`${isScrolled && 'bg-[#141414]'}`}>
       <div className="flex items-center space-x-2 md:space-x-10">
-        <NetflixLogo width={144} />
+        <NetflixLogo className="w-36" />
         <ul className="hidden space-x-4 md:flex">
           <li className="headerLink">Home</li>
           <li className="headerLink">TV Shows</li>
@@ -40,7 +40,7 @@ export default function Header() {
         <p className="hidden text-lg lg:inline">Kids</p>
         <IoNotificationsOutline className="h-6 w-6" />
         <Link href="/">
-          <NetflixAvatar className="rounded-lg" width={56} height={56} />
+          <NetflixAvatar className="h-12 w-12 rounded-lg" />
         </Link>
       </div>
     </header>
