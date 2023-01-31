@@ -1,4 +1,5 @@
 import Banner from '@/components/Banner';
+import Row from '@/components/Row';
 import requests from '@/services/movie';
 
 async function getData() {
@@ -22,7 +23,21 @@ async function getData() {
     requests.fetchDocumentaries(),
   ]);
 
-  return {
+  return [
+    trending.data.results,
+    netflixOriginals.data.results,
+    topRated.data.results,
+    actionMovies.data.results,
+    comedyMovies.data.results,
+    horrorMovies.data.results,
+    romanceMovies.data.results,
+    documentaries.data.results,
+  ];
+}
+
+export default async function Home() {
+  const movies = await getData();
+  const [
     trending,
     netflixOriginals,
     topRated,
@@ -31,15 +46,22 @@ async function getData() {
     horrorMovies,
     romanceMovies,
     documentaries,
-  };
-}
-
-export default async function Home() {
-  const movies = await getData();
+  ] = movies;
 
   return (
     <main className="flex min-h-screen flex-col justify-center px-6 py-2">
-      <Banner netflixOriginals={movies.netflixOriginals.data.results} />
+      <Banner netflixOriginals={netflixOriginals} />
+
+      <section className="md:space-y-24">
+        <Row title="Trending Now" movies={trending} />
+        <Row title="Top Rated" movies={topRated} />
+        <Row title="Action Thrillers" movies={actionMovies} />
+
+        <Row title="Comedies" movies={comedyMovies} />
+        <Row title="Scary Movies" movies={horrorMovies} />
+        <Row title="Romance Movies" movies={romanceMovies} />
+        <Row title="Documentaries" movies={documentaries} />
+      </section>
     </main>
   );
 }
