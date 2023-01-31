@@ -10,7 +10,7 @@ type Props = {
 };
 
 export default function Banner({ netflixOriginals }: Props) {
-  const [movie, setMovie] = useState<Movie | null>(null);
+  const [movie, setMovie] = useState<Movie | undefined>(undefined);
   useEffect(() => {
     setMovie(
       netflixOriginals[Math.floor(Math.random() * netflixOriginals.length)],
@@ -20,19 +20,23 @@ export default function Banner({ netflixOriginals }: Props) {
     <div className="flex flex-col space-y-2 py-16 md:space-y-4 lg:h-[65vh] lg:justify-end lg:pb-12">
       <Image
         className="absolute top-0 left-0 -z-10 h-screen w-screen"
-        src={`https://image.tmdb.org/t/p/original/${
-          movie?.backdrop_path || movie?.poster_path
-        }`}
+        src={
+          movie
+            ? `https://image.tmdb.org/t/p/original/${
+                movie?.backdrop_path || movie?.poster_path
+              }`
+            : ''
+        }
         alt="poster"
         width={1280}
         height={720}
         priority
       />
 
-      <h1 className="text-2xl md:text-4xl lg:text-7xl">
+      <h1 className="max-w-[16ch] text-2xl text-shadow-lg md:text-4xl lg:text-7xl">
         {movie?.title || movie?.name || movie?.original_name}
       </h1>
-      <p className="max-w-xs text-xs md:max-w-lg md:text-lg lg:max-w-2xl lg:text-2xl">
+      <p className="max-w-xs text-justify text-xs text-shadow-xl md:max-w-lg md:text-lg lg:max-w-2xl lg:text-2xl">
         {movie?.overview}
       </p>
 
