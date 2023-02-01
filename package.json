@@ -11,6 +11,7 @@
   "main": "index.js",
   "dependencies": {
     "@heroicons/react": "^2.0.14",
+    "@tailwindcss/line-clamp": "^0.4.2",
     "axios": "^1.2.6",
     "icons": "^1.0.0",
     "next": "^13.1.6",

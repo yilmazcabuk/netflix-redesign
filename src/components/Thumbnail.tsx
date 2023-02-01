@@ -12,7 +12,7 @@ function Thumbnail({ movie }: Props) {
         src={`https://image.tmdb.org/t/p/w500${
           movie.backdrop_path || movie.poster_path
         }`}
-        className="max-h-36 rounded-sm object-cover md:rounded"
+        className="max-h-32 rounded-sm object-cover md:rounded"
         alt="picture"
         width={256}
         height={256}

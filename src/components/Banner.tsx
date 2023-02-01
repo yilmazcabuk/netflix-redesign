@@ -33,10 +33,10 @@ export default function Banner({ netflixOriginals }: Props) {
         priority
       />
 
-      <h1 className="max-w-[16ch] text-2xl text-shadow-lg md:text-4xl lg:text-7xl">
+      <h1 className="max-w-[16ch] text-2xl line-clamp-2 text-shadow-lg md:text-4xl lg:text-7xl">
         {movie?.title || movie?.name || movie?.original_name}
       </h1>
-      <p className="max-w-xs text-justify text-xs text-shadow-xl md:max-w-lg md:text-lg lg:max-w-2xl lg:text-2xl">
+      <p className="max-w-xs text-justify text-xs line-clamp-4 text-shadow-xl md:max-w-lg md:text-lg lg:max-w-2xl lg:text-2xl">
         {movie?.overview}
       </p>
 
