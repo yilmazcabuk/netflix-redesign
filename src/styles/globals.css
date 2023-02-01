@@ -8,7 +8,7 @@
 }
 
 body {
-  @apply bg-[#141414] text-white scrollbar-thin scrollbar-track-transparent scrollbar-thumb-red-600;
+  @apply bg-[#141414] text-white md:scrollbar-thin md:scrollbar-track-transparent md:scrollbar-thumb-red-600;
 }
 
 header {

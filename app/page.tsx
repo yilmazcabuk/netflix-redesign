@@ -49,19 +49,21 @@ export default async function Home() {
   ] = movies;
 
   return (
-    <main className="flex min-h-screen flex-col justify-center px-6 py-2">
-      <Banner netflixOriginals={netflixOriginals} />
+    <div className="relative h-screen bg-gradient-to-b lg:h-[140vh]">
+      <div className="flex min-h-screen flex-col justify-center px-6 py-2">
+        <Banner netflixOriginals={netflixOriginals} />
 
-      <section className="md:space-y-24">
-        <Row title="Trending Now" movies={trending} />
-        <Row title="Top Rated" movies={topRated} />
-        <Row title="Action Thrillers" movies={actionMovies} />
+        <section className="md:space-y-24">
+          <Row title="Trending Now" movies={trending} />
+          <Row title="Top Rated" movies={topRated} />
+          <Row title="Action Thrillers" movies={actionMovies} />
 
-        <Row title="Comedies" movies={comedyMovies} />
-        <Row title="Scary Movies" movies={horrorMovies} />
-        <Row title="Romance Movies" movies={romanceMovies} />
-        <Row title="Documentaries" movies={documentaries} />
-      </section>
-    </main>
+          <Row title="Comedies" movies={comedyMovies} />
+          <Row title="Scary Movies" movies={horrorMovies} />
+          <Row title="Romance Movies" movies={romanceMovies} />
+          <Row title="Documentaries" movies={documentaries} />
+        </section>
+      </div>
+    </div>
   );
 }
