@@ -10,7 +10,10 @@ const config = {
     appDir: true,
   },
   images: {
-    remotePatterns: [{ protocol: 'https', hostname: 'image.tmdb.org' }],
+    remotePatterns: [
+      { protocol: 'https', hostname: 'image.tmdb.org' },
+      { protocol: 'https', hostname: 'rb.gy' },
+    ],
   },
 };
 
