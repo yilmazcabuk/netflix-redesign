@@ -2,15 +2,15 @@
 
 import { useEffect, useState } from 'react';
 import { IoInformationOutline, IoPlay } from 'react-icons/io5';
+import { MovieResult } from 'moviedb-promise';
 import Image from 'next/image';
-import Movie = Local.Movie;
 
 type Props = {
-  netflixOriginals: Movie[];
+  netflixOriginals: any;
 };
 
 export default function Banner({ netflixOriginals }: Props) {
-  const [movie, setMovie] = useState<Movie | null>(null);
+  const [movie, setMovie] = useState<MovieResult | null>(null);
   const background = movie
     ? `https://image.tmdb.org/t/p/original/${
         movie?.backdrop_path || movie?.poster_path
@@ -26,7 +26,7 @@ export default function Banner({ netflixOriginals }: Props) {
     <div className="flex flex-col space-y-2 py-16 md:space-y-4 lg:h-[65vh] lg:justify-end lg:pb-12">
       {movie && (
         <Image
-          className="absolute top-0 left-0 -z-10 h-screen w-screen"
+          className="absolute top-0 left-0 -z-10 h-screen w-screen object-cover"
           src={background}
           alt="poster"
           width={3840}
@@ -36,7 +36,7 @@ export default function Banner({ netflixOriginals }: Props) {
       )}
 
       <h1 className="max-w-[16ch] text-2xl line-clamp-2 text-shadow-lg md:text-4xl lg:text-7xl">
-        {movie?.title || movie?.name || movie?.original_name}
+        {movie?.title}
       </h1>
       <p className="max-w-xs text-justify text-xs line-clamp-4 text-shadow-xl md:max-w-lg md:text-lg lg:max-w-2xl lg:text-2xl">
         {movie?.overview}

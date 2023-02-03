@@ -1,51 +1,26 @@
 import { Banner, Row } from '@/components';
-import requests from '@/services/movie';
-
-async function getData() {
-  const [
-    trending,
-    netflixOriginals,
-    topRated,
-    actionMovies,
-    comedyMovies,
-    horrorMovies,
-    romanceMovies,
-    documentaries,
-  ] = await Promise.all([
-    requests.fetchTrending(),
-    requests.fetchNetflixOriginals(),
-    requests.fetchTopRated(),
-    requests.fetchActionMovies(),
-    requests.fetchComedyMovies(),
-    requests.fetchHorrorMovies(),
-    requests.fetchRomanceMovies(),
-    requests.fetchDocumentaries(),
-  ]);
-
-  return [
-    trending.data.results,
-    netflixOriginals.data.results,
-    topRated.data.results,
-    actionMovies.data.results,
-    comedyMovies.data.results,
-    horrorMovies.data.results,
-    romanceMovies.data.results,
-    documentaries.data.results,
-  ];
-}
+import { Movies } from '@/services/movieDB';
 
 export default async function Home() {
-  const movies = await getData();
   const [
-    trending,
     netflixOriginals,
-    topRated,
-    actionMovies,
-    comedyMovies,
-    horrorMovies,
-    romanceMovies,
-    documentaries,
-  ] = movies;
+    popular,
+    trending,
+    action,
+    comedy,
+    horror,
+    romance,
+    documentary,
+  ] = await Promise.all([
+    Movies.netflixOriginals(),
+    Movies.popular(),
+    Movies.trending(),
+    Movies.action(),
+    Movies.comedy(),
+    Movies.horror(),
+    Movies.romance(),
+    Movies.documentary(),
+  ]);
 
   return (
     <div className="relative h-screen bg-gradient-to-b lg:h-[140vh]">
@@ -54,13 +29,13 @@ export default async function Home() {
 
         <section className="md:space-y-24">
           <Row title="Trending Now" movies={trending} />
-          <Row title="Top Rated" movies={topRated} />
-          <Row title="Action Thrillers" movies={actionMovies} />
+          <Row title="Top Rated" movies={popular} />
+          <Row title="Action Thrillers" movies={action} />
 
-          <Row title="Comedies" movies={comedyMovies} />
-          <Row title="Scary Movies" movies={horrorMovies} />
-          <Row title="Romance Movies" movies={romanceMovies} />
-          <Row title="Documentaries" movies={documentaries} />
+          <Row title="Comedies" movies={comedy} />
+          <Row title="Scary Movies" movies={horror} />
+          <Row title="Romance Movies" movies={romance} />
+          <Row title="Documentaries" movies={documentary} />
         </section>
       </div>
     </div>

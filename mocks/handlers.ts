@@ -6,14 +6,11 @@ const handlers = [
   rest.get(
     '/api/hello',
     generateResponseResolver<Local.Movie>({
+      media_type: 'movie',
       backdrop_path: '',
-      first_air_date: '',
       genre_ids: [],
       id: 0,
-      name: '',
-      origin_country: [],
       original_language: '',
-      original_name: '',
       overview: '',
       popularity: 0,
       poster_path: '',

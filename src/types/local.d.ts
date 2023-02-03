@@ -5,22 +5,21 @@ declare namespace Local {
   }
 
   export interface Movie {
-    title: string;
-    backdrop_path: string;
-    media_type?: string;
+    poster_path?: string;
+    adult?: boolean;
+    overview?: string;
     release_date?: string;
-    first_air_date: string;
-    genre_ids: number[];
-    id: number;
-    name: string;
-    origin_country: string[];
-    original_language: string;
-    original_name: string;
-    overview: string;
-    popularity: number;
-    poster_path: string;
-    vote_average: number;
-    vote_count: number;
+    genre_ids?: Array<number>;
+    id?: number;
+    media_type: 'movie';
+    original_title?: string;
+    original_language?: string;
+    title?: string;
+    backdrop_path?: string;
+    popularity?: number;
+    vote_count?: number;
+    video?: boolean;
+    vote_average?: number;
   }
 
   export interface Element {

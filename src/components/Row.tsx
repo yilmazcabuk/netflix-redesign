@@ -4,11 +4,10 @@ import { useRef, useState } from 'react';
 import { IoChevronBackOutline, IoChevronForwardOutline } from 'react-icons/io5';
 
 import { Thumbnail } from '@/components';
-import Movie = Local.Movie;
 
 interface Props {
   title: string;
-  movies: Movie[];
+  movies: any;
 }
 
 function Row({ title, movies }: Props) {
@@ -45,7 +44,7 @@ function Row({ title, movies }: Props) {
           className="flex items-center space-x-0.5 overflow-x-scroll scrollbar-hide md:space-x-2.5 md:p-2"
           ref={rowRef}
         >
-          {movies.map((movie) => (
+          {movies?.map((movie: any) => (
             <Thumbnail key={movie.id} movie={movie} />
           ))}
         </div>
