@@ -37,7 +37,7 @@ export default function Header() {
       </div>
       <div className="flex items-center space-x-4 text-sm font-light">
         <IoSearchOutline className="hidden h-6 w-6 sm:inline" />
-        <p className="hidden text-lg lg:inline">Kids</p>
+        <p className="hidden text-lg text-shadow-lg lg:inline">Kids</p>
         <IoNotificationsOutline className="h-6 w-6" />
         <Link href="/">
           <NetflixAvatar className="h-12 w-12 rounded-lg" />

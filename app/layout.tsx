@@ -1,7 +1,6 @@
 import type { ChildrenProps } from 'react';
 
-import Footer from '@/components/Footer';
-import Header from '@/components/Header';
+import { Footer, Header } from '@/components';
 
 import '@/styles/globals.css';
 

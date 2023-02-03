@@ -1,5 +1,4 @@
-import Banner from '@/components/Banner';
-import Row from '@/components/Row';
+import { Banner, Row } from '@/components';
 import requests from '@/services/movie';
 
 async function getData() {
