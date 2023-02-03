@@ -3,7 +3,7 @@
 import { useRef, useState } from 'react';
 import { IoChevronBackOutline, IoChevronForwardOutline } from 'react-icons/io5';
 
-import Thumbnail from '@/components/Thumbnail';
+import { Thumbnail } from '@/components';
 import Movie = Local.Movie;
 
 interface Props {

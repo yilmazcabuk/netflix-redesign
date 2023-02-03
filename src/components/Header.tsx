@@ -4,8 +4,7 @@ import { useEffect, useState } from 'react';
 import { IoNotificationsOutline, IoSearchOutline } from 'react-icons/io5';
 import Link from 'next/link';
 
-import NetflixAvatar from '@/public/netflix-avatar';
-import NetflixLogo from '@/public/netflix-logo';
+import { NetflixAvatar, NetflixLogo } from '@/public/statics';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);

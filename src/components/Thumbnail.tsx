@@ -15,7 +15,7 @@ function Thumbnail({ movie }: Props) {
       <Image
         src={imageSrc}
         className="aspect-video h-auto w-auto rounded-sm object-cover md:rounded"
-        alt="picture"
+        alt="thumbnail"
         width={256}
         height={256}
       />

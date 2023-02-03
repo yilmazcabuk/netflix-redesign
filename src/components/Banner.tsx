@@ -10,7 +10,13 @@ type Props = {
 };
 
 export default function Banner({ netflixOriginals }: Props) {
-  const [movie, setMovie] = useState<Movie | undefined>(undefined);
+  const [movie, setMovie] = useState<Movie | null>(null);
+  const background = movie
+    ? `https://image.tmdb.org/t/p/original/${
+        movie?.backdrop_path || movie?.poster_path
+      }`
+    : '';
+
   useEffect(() => {
     setMovie(
       netflixOriginals[Math.floor(Math.random() * netflixOriginals.length)],
@@ -18,20 +24,16 @@ export default function Banner({ netflixOriginals }: Props) {
   }, [netflixOriginals]);
   return (
     <div className="flex flex-col space-y-2 py-16 md:space-y-4 lg:h-[65vh] lg:justify-end lg:pb-12">
-      <Image
-        className="absolute top-0 left-0 -z-10 h-screen w-screen"
-        src={
-          movie
-            ? `https://image.tmdb.org/t/p/original/${
-                movie?.backdrop_path || movie?.poster_path
-              }`
-            : ''
-        }
-        alt="poster"
-        width={1280}
-        height={720}
-        priority
-      />
+      {movie && (
+        <Image
+          className="absolute top-0 left-0 -z-10 h-screen w-screen"
+          src={background}
+          alt="poster"
+          width={3840}
+          height={2160}
+          priority
+        />
+      )}
 
       <h1 className="max-w-[16ch] text-2xl line-clamp-2 text-shadow-lg md:text-4xl lg:text-7xl">
         {movie?.title || movie?.name || movie?.original_name}
