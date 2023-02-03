@@ -1,66 +1,53 @@
-import axios from 'axios';
+import dotenv from 'dotenv';
+import { MovieDb } from 'moviedb-promise';
 
-const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
-const BASE_URL = 'https://api.themoviedb.org/3';
+dotenv.config();
+const movie = new MovieDb(process.env.NEXT_PUBLIC_API_KEY as string);
 
-export const api = axios.create({
-  baseURL: BASE_URL,
-  params: { api_key: API_KEY },
-});
-
-const requests = {
-  fetchTrending: () =>
-    api.get('/trending/all/week', {
-      params: {
-        language: 'en-US',
-      },
-    }),
-  fetchNetflixOriginals: () =>
-    api.get('/discover/movie', {
-      params: {
-        with_networks: 213,
-      },
-    }),
-  fetchTopRated: () =>
-    api.get('/movie/top_rated', {
-      params: {
-        language: 'en-US',
-      },
-    }),
-  fetchActionMovies: () =>
-    api.get('/discover/movie', {
-      params: {
-        language: 'en-US',
-        with_genres: 28,
-      },
-    }),
-  fetchComedyMovies: () =>
-    api.get('/discover/movie', {
-      params: {
-        language: 'en-US',
-        with_genres: 35,
-      },
-    }),
-  fetchHorrorMovies: () =>
-    api.get('/discover/movie', {
-      params: {
-        language: 'en-US',
-        with_genres: 27,
-      },
-    }),
-  fetchRomanceMovies: () =>
-    api.get('/discover/movie', {
-      params: {
-        language: 'en-US',
-        with_genres: 10749,
-      },
-    }),
-  fetchDocumentaries: () =>
-    api.get('/discover/movie', {
-      params: {
-        language: 'en-US',
-        with_genres: 99,
-      },
-    }),
+export const Movies = {
+  netflixOriginals: async () => {
+    const res = await movie.movieNowPlaying();
+    return res.results;
+  },
+  popular: async () => {
+    const res = await movie.moviePopular();
+    return res.results;
+  },
+  trending: async () => {
+    const res = await movie.trending({
+      media_type: 'movie',
+      time_window: 'day',
+    });
+    return res.results;
+  },
+  action: async () => {
+    const res = await movie.discoverMovie({
+      with_genres: '28',
+    });
+    return res.results;
+  },
+  comedy: async () => {
+    const res = await movie.discoverMovie({
+      with_genres: '35',
+    });
+    return res.results;
+  },
+  horror: async () => {
+    const res = await movie.discoverMovie({
+      with_genres: '27',
+    });
+    return res.results;
+  },
+  romance: async () => {
+    const res = await movie.discoverMovie({
+      with_genres: '10749',
+    });
+    return res.results;
+  },
+  documentary: async () => {
+    const res = await movie.discoverMovie({
+      with_genres: '99',
+    });
+    return res.results;
+  },
 };
-export default requests;

@@ -1,5 +1,5 @@
 import { Banner, Row } from '@/components';
-import { Movies } from '@/services/movieDB';
+import { Movies } from '@/services/movie';
 
 export default async function Home() {
   const [
