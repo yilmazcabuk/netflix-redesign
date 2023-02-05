@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 import { MovieDb } from 'moviedb-promise';
 
 dotenv.config();
-const movie = new MovieDb(process.env.NEXT_PUBLIC_API_KEY as string);
+const movie = new MovieDb(process.env.NEXT_PUBLIC_API_KEY);
 
 export const Movies = {
   netflixOriginals: async () => {
