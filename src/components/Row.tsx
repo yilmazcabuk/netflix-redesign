@@ -12,7 +12,7 @@ interface Props {
 
 function Row({ title, movies }: Props) {
   const rowRef = useRef<HTMLDivElement>(null);
-  const [isMoved, setIsMoved] = useState(false);
+  const [isMoved, setIsMoved] = useState<boolean>(false);
 
   const handleClick = (direction: string) => {
     setIsMoved(true);

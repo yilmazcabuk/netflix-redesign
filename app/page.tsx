@@ -27,7 +27,7 @@ export default async function Home() {
       <div className="flex min-h-screen flex-col justify-center px-6 py-2">
         <Banner netflixOriginals={netflixOriginals} />
 
-        <section className="md:space-y-24">
+        <section className="-space-y-4 md:space-y-20">
           <Row title="Trending Now" movies={trending} />
           <Row title="Top Rated" movies={popular} />
           <Row title="Action Thrillers" movies={action} />

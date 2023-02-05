@@ -3,6 +3,7 @@
 
 import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import useAuth from '@/hooks/useAuth';
 
 type Inputs = {
   email: string;
@@ -10,6 +11,7 @@ type Inputs = {
 };
 export default function Form() {
   const [login, setLogin] = useState<boolean>(false);
+  const { signIn, signUp } = useAuth();
   const {
     register,
     handleSubmit,
@@ -18,9 +20,9 @@ export default function Form() {
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = async ({ email, password }) => {
     if (login) {
-      // await signIn(email, password);
+      await signIn(email, password);
     } else {
-      // await signUp(email, password);
+      await signUp(email, password);
     }
   };
 
