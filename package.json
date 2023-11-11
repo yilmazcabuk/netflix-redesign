@@ -12,7 +12,7 @@
   "dependencies": {
     "@heroicons/react": "^2.0.14",
     "@tailwindcss/line-clamp": "^0.4.2",
-    "axios": "^1.2.6",
+    "axios": "^1.6.0",
     "dotenv": "^16.0.3",
     "firebase": "^9.16.0",
     "icons": "^1.0.0",
